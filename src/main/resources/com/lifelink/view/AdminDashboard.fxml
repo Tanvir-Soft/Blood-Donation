@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<ScrollPane fitToWidth="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED"
+            style="-fx-background: transparent; -fx-background-color: transparent;"
+            xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.lifelink.controller.AdminDashboardController">
+            
+    <VBox spacing="24.0" style="-fx-padding: 0 0 20 0;">
+        <!-- Welcome Section -->
+        <VBox spacing="4.0">
+            <Label fx:id="welcomeText" text="Welcome to LifeLink Admin Portal" textFill="#1A1D23">
+                <font><Font name="System Bold" size="22.0"/></font>
+            </Label>
+            <Label text="Overview of system-wide donor management, requests, and hospital records." textFill="#757575">
+                <font><Font size="13.0"/></font>
+            </Label>
+        </VBox>
+
+        <!-- Stats Grid (GridPane) -->
+        <GridPane hgap="16.0" vgap="16.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.3"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.3"/>
+                <ColumnConstraints hgrow="ALWAYS" percentWidth="33.3"/>
+            </columnConstraints>
+            
+            <rowConstraints>
+                <RowConstraints vgrow="NEVER"/>
+                <RowConstraints vgrow="NEVER"/>
+            </rowConstraints>
+            
+            <!-- Cards using fx:include -->
+            <fx:include fx:id="usersCard" source="DashboardCard.fxml" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+            <fx:include fx:id="donorsCard" source="DashboardCard.fxml" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+            <fx:include fx:id="eligibleCard" source="DashboardCard.fxml" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+            <fx:include fx:id="requestsCard" source="DashboardCard.fxml" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+            <fx:include fx:id="hospitalsCard" source="DashboardCard.fxml" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        </GridPane>
+
+        <!-- Quick Information Card -->
+        <VBox spacing="10.0" style="-fx-background-color: white; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.05), 8, 0, 0, 4); -fx-padding: 20px;">
+            <Label text="Hospital Management Dashboard Tip" textFill="#E53935">
+                <font><Font name="System Bold" size="14.0"/></font>
+            </Label>
+            <Label text="Keep blood donor directories updated and monitor pending emergency requests to ensure immediate support. Ineligibility lists are automatically updated based on the last donation date (90 days interval rule)." textFill="#555555" wrapText="true">
+                <font><Font size="13.0"/></font>
+            </Label>
+        </VBox>
+    </VBox>
+</ScrollPane>

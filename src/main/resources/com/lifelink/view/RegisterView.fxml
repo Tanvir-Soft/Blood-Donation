@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox xmlns="http://javafx.com/javafx/21"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lifelink.controller.RegisterController"
+      prefWidth="950.0" prefHeight="620.0">
+
+    <!-- ===== LEFT BRANDING PANEL ===== -->
+    <VBox alignment="CENTER" prefWidth="340.0"
+          style="-fx-background-color: linear-gradient(to bottom, #B71C1C, #E53935, #EF5350);
+                 -fx-padding: 50 30 50 30;">
+
+        <ImageView fitWidth="80.0" fitHeight="80.0" preserveRatio="true">
+            <Image url="@../assets/logo.png"/>
+        </ImageView>
+
+        <Region prefHeight="16.0"/>
+
+        <Label text="LifeLink" textFill="white">
+            <font><Font name="System Bold" size="36.0"/></font>
+        </Label>
+
+        <Region prefHeight="6.0"/>
+
+        <Label text="Join Our Life-Saving Network" textFill="#FFCDD2"
+               wrapText="true" textAlignment="CENTER" maxWidth="260.0">
+            <font><Font size="13.0"/></font>
+        </Label>
+
+        <Region prefHeight="36.0"/>
+        <Region prefWidth="50.0" prefHeight="2.0"
+                style="-fx-background-color: rgba(255,255,255,0.35);"/>
+        <Region prefHeight="30.0"/>
+
+        <!-- Benefits list -->
+        <VBox spacing="12.0" alignment="CENTER_LEFT" maxWidth="240.0">
+            <Label text="✔  Find donors near you" textFill="#FFEBEE">
+                <font><Font size="12.0"/></font>
+            </Label>
+            <Label text="✔  Submit emergency blood requests" textFill="#FFEBEE">
+                <font><Font size="12.0"/></font>
+            </Label>
+            <Label text="✔  Track your donation history" textFill="#FFEBEE">
+                <font><Font size="12.0"/></font>
+            </Label>
+            <Label text="✔  Save lives in your community" textFill="#FFEBEE">
+                <font><Font size="12.0"/></font>
+            </Label>
+        </VBox>
+
+        <Region prefHeight="40.0"/>
+        <Label text="❤ Be a hero today" textFill="rgba(255,255,255,0.55)">
+            <font><Font size="11.0"/></font>
+        </Label>
+    </VBox>
+
+    <!-- ===== RIGHT FORM PANEL ===== -->
+    <StackPane HBox.hgrow="ALWAYS"
+               style="-fx-background-color: #FAFAFA;">
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER"
+                    style="-fx-background: transparent; -fx-background-color: transparent;">
+            <VBox alignment="TOP_CENTER" spacing="0" maxWidth="440.0">
+                <VBox.margin><Insets top="30.0" bottom="30.0" left="30.0" right="30.0"/></VBox.margin>
+
+                <!-- Header -->
+                <Label text="Create Account" textFill="#212121">
+                    <font><Font name="System Bold" size="26.0"/></font>
+                </Label>
+                <Region prefHeight="4.0"/>
+                <Label text="Fill in your details to register" textFill="#757575">
+                    <font><Font size="12.0"/></font>
+                </Label>
+                <Region prefHeight="20.0"/>
+
+                <!-- ===== ROLE SELECTION TOGGLE ===== -->
+                <Label text="Register As" textFill="#424242">
+                    <font><Font name="System Bold" size="12.0"/></font>
+                    <VBox.margin><Insets bottom="8.0"/></VBox.margin>
+                </Label>
+                <HBox spacing="0.0" maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="20.0"/></VBox.margin>
+                    <ToggleButton fx:id="donorToggle" text="🩸  Donor"
+                                  HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                  selected="true" onAction="#handleRoleToggle"
+                                  style="-fx-background-color: #E53935; -fx-text-fill: white;
+                                         -fx-font-weight: bold; -fx-font-size: 12;
+                                         -fx-background-radius: 8 0 0 8; -fx-cursor: hand;
+                                         -fx-padding: 10;">
+                        <toggleGroup><ToggleGroup fx:id="roleGroup"/></toggleGroup>
+                    </ToggleButton>
+                    <ToggleButton fx:id="seekerToggle" text="🔍  Blood Seeker"
+                                  HBox.hgrow="ALWAYS" maxWidth="Infinity"
+                                  onAction="#handleRoleToggle"
+                                  style="-fx-background-color: white; -fx-text-fill: #E53935;
+                                         -fx-font-weight: bold; -fx-font-size: 12;
+                                         -fx-border-color: #E53935; -fx-border-width: 1 1 1 0;
+                                         -fx-background-radius: 0 8 8 0; -fx-cursor: hand;
+                                         -fx-padding: 10;">
+                        <toggleGroup><ToggleGroup fx:id="roleGroup"/></toggleGroup>
+                    </ToggleButton>
+                </HBox>
+
+                <!-- ===== COMMON FIELDS ===== -->
+                <!-- Full Name -->
+                <Label text="Full Name *" textFill="#424242">
+                    <font><Font name="System Bold" size="11.0"/></font>
+                    <VBox.margin><Insets bottom="5.0"/></VBox.margin>
+                </Label>
+                <TextField fx:id="fullNameField" promptText="Enter your full name"
+                           style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                  -fx-border-radius: 7; -fx-background-radius: 7;
+                                  -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"
+                           maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                </TextField>
+
+                <!-- Email -->
+                <Label text="Email Address *" textFill="#424242">
+                    <font><Font name="System Bold" size="11.0"/></font>
+                    <VBox.margin><Insets bottom="5.0"/></VBox.margin>
+                </Label>
+                <TextField fx:id="emailField" promptText="Enter your email address"
+                           style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                  -fx-border-radius: 7; -fx-background-radius: 7;
+                                  -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"
+                           maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                </TextField>
+
+                <!-- Username -->
+                <Label text="Username *" textFill="#424242">
+                    <font><Font name="System Bold" size="11.0"/></font>
+                    <VBox.margin><Insets bottom="5.0"/></VBox.margin>
+                </Label>
+                <TextField fx:id="usernameField" promptText="Choose a username"
+                           style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                  -fx-border-radius: 7; -fx-background-radius: 7;
+                                  -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"
+                           maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                </TextField>
+
+                <!-- Password & Confirm Password side by side -->
+                <HBox spacing="12.0" maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                        <Label text="Password *" textFill="#424242">
+                            <font><Font name="System Bold" size="11.0"/></font>
+                        </Label>
+                        <PasswordField fx:id="passwordField" promptText="Min 6 characters"
+                                       style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                              -fx-border-radius: 7; -fx-background-radius: 7;
+                                              -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"/>
+                    </VBox>
+                    <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                        <Label text="Confirm Password *" textFill="#424242">
+                            <font><Font name="System Bold" size="11.0"/></font>
+                        </Label>
+                        <PasswordField fx:id="confirmPasswordField" promptText="Re-enter password"
+                                       style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                              -fx-border-radius: 7; -fx-background-radius: 7;
+                                              -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"/>
+                    </VBox>
+                </HBox>
+
+                <!-- Phone Number -->
+                <Label text="Phone Number *" textFill="#424242">
+                    <font><Font name="System Bold" size="11.0"/></font>
+                    <VBox.margin><Insets bottom="5.0"/></VBox.margin>
+                </Label>
+                <TextField fx:id="phoneField" promptText="e.g. 01712345678"
+                           style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                  -fx-border-radius: 7; -fx-background-radius: 7;
+                                  -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"
+                           maxWidth="Infinity">
+                    <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                </TextField>
+
+                <!-- ===== DONOR-ONLY FIELDS (shown/hidden by toggle) ===== -->
+                <VBox fx:id="donorFieldsBox" spacing="0.0" visible="true" managed="true">
+                    <Separator style="-fx-background-color: #EEEEEE;">
+                        <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                    </Separator>
+                    <Label text="Donor Details" textFill="#9E9E9E">
+                        <font><Font name="System Bold" size="11.0"/></font>
+                        <VBox.margin><Insets bottom="12.0"/></VBox.margin>
+                    </Label>
+
+                    <!-- Age & Weight -->
+                    <HBox spacing="12.0" maxWidth="Infinity">
+                        <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                        <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                            <Label text="Age *" textFill="#424242">
+                                <font><Font name="System Bold" size="11.0"/></font>
+                            </Label>
+                            <TextField fx:id="ageField" promptText="18 - 65"
+                                       style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                              -fx-border-radius: 7; -fx-background-radius: 7;
+                                              -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"/>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                            <Label text="Weight (kg) *" textFill="#424242">
+                                <font><Font name="System Bold" size="11.0"/></font>
+                            </Label>
+                            <TextField fx:id="weightField" promptText="e.g. 65.5"
+                                       style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                              -fx-border-radius: 7; -fx-background-radius: 7;
+                                              -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"/>
+                        </VBox>
+                    </HBox>
+
+                    <!-- Blood Group & City -->
+                    <HBox spacing="12.0" maxWidth="Infinity">
+                        <VBox.margin><Insets bottom="14.0"/></VBox.margin>
+                        <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                            <Label text="Blood Group *" textFill="#424242">
+                                <font><Font name="System Bold" size="11.0"/></font>
+                            </Label>
+                            <ComboBox fx:id="bloodGroupCombo" promptText="Select blood group"
+                                      maxWidth="Infinity"
+                                      style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                             -fx-border-radius: 7; -fx-background-radius: 7;
+                                             -fx-font-size: 12; -fx-pref-height: 40;"/>
+                        </VBox>
+                        <VBox HBox.hgrow="ALWAYS" spacing="5.0">
+                            <Label text="City *" textFill="#424242">
+                                <font><Font name="System Bold" size="11.0"/></font>
+                            </Label>
+                            <TextField fx:id="cityField" promptText="Your city"
+                                       style="-fx-background-color: white; -fx-border-color: #E0E0E0;
+                                              -fx-border-radius: 7; -fx-background-radius: 7;
+                                              -fx-padding: 10 12; -fx-font-size: 12; -fx-pref-height: 40;"/>
+                        </VBox>
+                    </HBox>
+                </VBox>
+
+                <!-- ===== REGISTER BUTTON ===== -->
+                <Button fx:id="registerButton" text="Create Account" onAction="#handleRegister"
+                        maxWidth="Infinity" prefHeight="44.0"
+                        style="-fx-background-color: #E53935; -fx-text-fill: white;
+                               -fx-font-size: 13px; -fx-font-weight: bold;
+                               -fx-background-radius: 8; -fx-cursor: hand;">
+                    <VBox.margin><Insets top="8.0" bottom="14.0"/></VBox.margin>
+                </Button>
+
+                <!-- Back to Login -->
+                <HBox alignment="CENTER" spacing="4.0">
+                    <Label text="Already have an account?" textFill="#757575">
+                        <font><Font size="12.0"/></font>
+                    </Label>
+                    <Hyperlink fx:id="loginLink" text="Sign In" textFill="#E53935"
+                               style="-fx-border-color: transparent; -fx-font-weight: bold; -fx-font-size: 12;"
+                               onAction="#handleBackToLogin"/>
+                </HBox>
+
+            </VBox>
+        </ScrollPane>
+    </StackPane>
+
+</HBox>

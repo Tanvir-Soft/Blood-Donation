@@ -1,0 +1,193 @@
+/* 
+   LifeLink CSS Styling - Professional Hospital Theme
+   Primary: Red (#E53935), White (#FFFFFF), Light Gray (#F5F5F5)
+   Secondary: Dark Slate (#1A1D23), Green (#43A047), Text Gray (#757575)
+*/
+
+.root {
+    -fx-font-family: "Segoe UI", Helvetica, Arial, sans-serif;
+    -fx-background-color: #F0F2F5;
+}
+
+/* === GENERAL COMPONENT STYLING === */
+.label {
+    -fx-text-fill: #2C3E50;
+}
+
+.text-field, .password-field {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 12px;
+    -fx-font-size: 13px;
+    -fx-text-fill: #2C3E50;
+    -fx-prompt-text-fill: #999999;
+}
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #E53935;
+    -fx-background-color: #FFFFFF;
+}
+
+.combo-box {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-padding: 4px 8px;
+    -fx-font-size: 13px;
+}
+.combo-box:focused {
+    -fx-border-color: #E53935;
+}
+.combo-box .list-cell {
+    -fx-text-fill: #2C3E50;
+}
+
+.date-picker {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: #E0E0E0;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+}
+.date-picker > .text-field {
+    -fx-background-radius: 8px 0px 0px 8px;
+    -fx-border-width: 0px;
+    -fx-padding: 9px 12px;
+}
+.date-picker:focused {
+    -fx-border-color: #E53935;
+}
+
+/* === BUTTON STYLING === */
+.button {
+    -fx-cursor: hand;
+    -fx-font-size: 13px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8px;
+    -fx-padding: 10px 18px;
+    -fx-transition: all 0.2s ease-in-out;
+}
+
+.btn-primary {
+    -fx-background-color: #E53935;
+    -fx-text-fill: #FFFFFF;
+}
+.btn-primary:hover {
+    -fx-background-color: #D32F2F;
+}
+.btn-primary:pressed {
+    -fx-background-color: #C62828;
+}
+
+.btn-secondary {
+    -fx-background-color: transparent;
+    -fx-text-fill: #E53935;
+    -fx-border-color: #E53935;
+    -fx-border-radius: 8px;
+}
+.btn-secondary:hover {
+    -fx-background-color: rgba(229, 57, 181, 0.05);
+}
+
+.btn-success {
+    -fx-background-color: #43A047;
+    -fx-text-fill: #FFFFFF;
+}
+.btn-success:hover {
+    -fx-background-color: #388E3C;
+}
+
+.btn-danger {
+    -fx-background-color: #E53935;
+    -fx-text-fill: white;
+}
+.btn-danger:hover {
+    -fx-background-color: #C62828;
+}
+
+/* === TABLE VIEW STYLING === */
+.table-view {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-border-radius: 12px;
+    -fx-border-color: #EAEAEA;
+    -fx-padding: 0px;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #F8F9FA;
+    -fx-background-radius: 12px 12px 0px 0px;
+    -fx-border-radius: 12px 12px 0px 0px;
+    -fx-border-color: transparent transparent #EAEAEA transparent;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-size: 40px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #4A5568;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.table-view .table-row-cell {
+    -fx-background-color: #FFFFFF;
+    -fx-border-color: transparent transparent #F1F3F5 transparent;
+    -fx-padding: 8px 0px;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: #FAFBFD;
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: #FFEBEE;
+    -fx-text-fill: #E53935;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #2D3748;
+    -fx-alignment: CENTER_LEFT;
+    -fx-font-size: 13px;
+    -fx-padding: 0 12;
+}
+
+/* === CARDS & CONTAINERS === */
+.card {
+    -fx-background-color: #FFFFFF;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.05), 8, 0, 0, 4);
+    -fx-padding: 20px;
+}
+
+.card-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #1A1D23;
+}
+
+/* === ELIGIBILITY STATES === */
+.status-eligible {
+    -fx-background-color: #E8F5E9;
+    -fx-border-color: #81C784;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+.status-eligible-text {
+    -fx-text-fill: #2E7D32;
+    -fx-font-weight: bold;
+}
+
+.status-ineligible {
+    -fx-background-color: #FFEBEE;
+    -fx-border-color: #E57373;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+}
+.status-ineligible-text {
+    -fx-text-fill: #C62828;
+    -fx-font-weight: bold;
+}

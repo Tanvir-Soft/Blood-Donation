@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER_LEFT" prefWidth="220.0" spacing="10.0" 
+      style="-fx-background-color: white; -fx-background-radius: 12px; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 8, 0, 0, 2); -fx-padding: 18px;" 
+      xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.lifelink.controller.DashboardCardController">
+      
+    <HBox alignment="CENTER_LEFT" spacing="10.0">
+        <StackPane fx:id="iconBg" prefWidth="40.0" prefHeight="40.0" style="-fx-background-radius: 20px;">
+            <Label fx:id="iconLabel" text="🩸">
+                <font><Font size="18.0"/></font>
+            </Label>
+        </StackPane>
+        <Label fx:id="titleLabel" text="Card Title" textFill="#757575">
+            <font><Font size="12.0"/></font>
+        </Label>
+    </HBox>
+    <Label fx:id="valueLabel" text="0" textFill="#E53935">
+        <font><Font name="System Bold" size="28.0"/></font>
+    </Label>
+</VBox>

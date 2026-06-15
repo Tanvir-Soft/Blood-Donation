@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox spacing="20.0" style="-fx-padding: 0 0 20 0;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.lifelink.controller.RequestManagementController">
+    <!-- REQUEST HEADER & ACTION PANEL -->
+    <VBox spacing="16.0" styleClass="card" stylesheets="@../css/style.css">
+        <HBox alignment="CENTER_LEFT" spacing="16.0">
+            <Label styleClass="card-title" text="Blood Requests Dashboard" HBox.hgrow="ALWAYS" />
+            <TextField fx:id="searchField" promptText="🔍 Search by blood group or hospital..." prefWidth="280.0" />
+            <Button fx:id="newRequestButton" onAction="#handleNewRequest" styleClass="btn-primary" text="➕ New Emergency Request" />
+            <Button onAction="#handleRefresh" styleClass="btn-secondary" text="Refresh" />
+        </HBox>
+    </VBox>
+
+    <!-- TABLE AREA -->
+    <VBox spacing="16.0" styleClass="card" VBox.vgrow="ALWAYS" stylesheets="@../css/style.css">
+        <TableView fx:id="requestsTable" VBox.vgrow="ALWAYS">
+            <columns>
+                <TableColumn fx:id="colId" text="Req. ID" prefWidth="70.0" />
+                <TableColumn fx:id="colRequester" text="Requester (Hospital/Seeker)" prefWidth="250.0" />
+                <TableColumn fx:id="colBloodGroup" text="Blood Group" prefWidth="110.0" />
+                <TableColumn fx:id="colUnits" text="Units Required" prefWidth="110.0" />
+                <TableColumn fx:id="colPriority" text="Priority" prefWidth="110.0" />
+                <TableColumn fx:id="colDate" text="Date Logged" prefWidth="120.0" />
+                <TableColumn fx:id="colStatus" text="Status" prefWidth="120.0" />
+            </columns>
+        </TableView>
+
+        <!-- FOOTER ACTIONS -->
+        <HBox alignment="CENTER_RIGHT" spacing="12.0" style="-fx-padding: 10 0 0 0;">
+            <Label text="Select a request to manage:" textFill="#757575">
+                <font><Font size="13.0" /></font>
+            </Label>
+            <Button fx:id="approveButton" onAction="#handleApproveRequest" styleClass="btn-success" text="Approve" prefWidth="110.0" />
+            <Button fx:id="rejectButton" onAction="#handleRejectRequest" styleClass="btn-danger" text="Reject" prefWidth="110.0" />
+            <Button fx:id="fulfillButton" onAction="#handleFulfillRequest" styleClass="btn-primary" text="Fulfill/Complete" prefWidth="140.0" />
+            <Button fx:id="deleteButton" onAction="#handleDeleteRequest" styleClass="btn-secondary" text="Delete" prefWidth="90.0" />
+        </HBox>
+    </VBox>
+</VBox>
